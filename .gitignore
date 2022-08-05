@@ -1,2 +1,4 @@
 node_modules
 /node_modules
+# stryker temp files
+.stryker-tmp
