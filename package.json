@@ -14,7 +14,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "npx eslint ./ --ext .js,.jsx,.ts,.tsx --ignore-path .gitignore --fix",
-    "chromatic": "npx chromatic --project-token=c428fac79dbc",
+    "chromatic": "npx chromatic",
     "prepare": "husky install"
   },
   "repository": {
