@@ -39,10 +39,11 @@ jobs:
         run: npm run build
 
       # Adds Chromatic as a step in the workflow
-      - name: Publish to Chromatic
-        uses: chromaui/action@v1
+     # - name: Publish to Chromatic
+
+     #   uses: chromaui/action@v1
         # Options required to the GitHub Chromatic Action
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+      #  with:
+       #   token: ${{ secrets.GITHUB_TOKEN }}
           # Chromatic projectToken, refer to the manage page to obtain it.
-          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+        #  projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
