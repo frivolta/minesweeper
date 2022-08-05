@@ -22,9 +22,9 @@ export const Legend: FC<LegendProps> = ({
   secondAction,
 }) => (
   <Parent>
-    <strong>{feature}</strong>
+    <strong>{feature}: </strong>
     <FlagComboParent>
-      <Key>{firstAction}: </Key> + <Click>{secondAction}</Click>
+      <Key>{firstAction} </Key> + <Click>{secondAction}</Click>
     </FlagComboParent>
   </Parent>
 );
