@@ -17,7 +17,7 @@ describe("Scoreboard test cases", () => {
 
     expect(asFragment()).toMatchSnapshot();
   });
-  it("Scoreboard select level handler check", () => {
+  it("Scoreboard select level handler check", async () => {
     const onChange = jest.fn();
 
     render(
@@ -30,7 +30,7 @@ describe("Scoreboard test cases", () => {
       />
     );
 
-    userEvent.selectOptions(screen.getByRole("combobox"), "expert");
+    await userEvent.selectOptions(screen.getByRole("combobox"), "expert");
 
     expect(screen.getByRole("option", { name: "expert" })).toBeEnabled();
 
