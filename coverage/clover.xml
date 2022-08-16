@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1659821096886" clover="3.2.0">
-  <project timestamp="1659821096886" name="All files">
+<coverage generated="1660637300306" clover="3.2.0">
+  <project timestamp="1660637300306" name="All files">
     <metrics statements="165" coveredstatements="160" conditionals="47" coveredconditionals="45" methods="41" coveredmethods="38" elements="253" coveredelements="243" complexity="0" loc="165" ncloc="165" packages="7" files="23" classes="23"/>
     <package name="components.Game">
       <metrics statements="11" coveredstatements="10" conditionals="2" coveredconditionals="1" methods="4" coveredmethods="3"/>
@@ -169,9 +169,9 @@
         <line num="38" count="40" type="stmt"/>
         <line num="40" count="40" type="stmt"/>
         <line num="41" count="320" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="237" type="stmt"/>
-        <line num="43" count="237" type="cond" truecount="2" falsecount="0"/>
-        <line num="44" count="204" type="stmt"/>
+        <line num="42" count="228" type="stmt"/>
+        <line num="43" count="228" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="191" type="stmt"/>
         <line num="49" count="40" type="stmt"/>
       </file>
       <file name="Field.ts" path="/Users/frivolta/Desktop/Sites/Apps/minesweeper/src/helpers/Field.ts">
