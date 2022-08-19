@@ -12,6 +12,8 @@ const config = {
     'src/**/*.ts?(x)',
     '!src/**/*@(.test|.spec|Spec|stories|styled).ts?(x)',
     '!src/**/__mocks__/**/*',
+    '!__mocks__',
+    '!__snapshots__',
   ],
 };
 export default config;

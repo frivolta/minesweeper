@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>3/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>0/8</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>3/3</span>
+                <span class='fraction'>0/3</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>12/12</span>
+                <span class='fraction'>3/12</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -120,13 +120,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">90x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -140,8 +137,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">711x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,19 +149,19 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">40x</span>
-<span class="cline-any cline-yes">320x</span>
-<span class="cline-any cline-yes">228x</span>
-<span class="cline-any cline-yes">228x</span>
-<span class="cline-any cline-yes">191x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">40x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Cell, Coords, Field } from "./Field";
 &nbsp;
@@ -170,10 +170,10 @@
  * @param {Coords} coords
  * @returns {Record&lt;string, [number, number]&gt;}
  */
-export const getNeigboursItems = ([y, x]: Coords): Record&lt;
+export const getNeigboursItems = <span class="fstat-no" title="function not covered" >([</span>y, x]: Coords): Record&lt;
   string,
   [number, number]
-&gt; =&gt; ({
+&gt; =&gt; (<span class="cstat-no" title="statement not covered" >{</span>
   top: [y - 1, x],
   topRight: [y - 1, x + 1],
   right: [y, x + 1],
@@ -190,8 +190,8 @@ export const getNeigboursItems = ([y, x]: Coords): Record&lt;
  * @param {Field} field
  * @returns {boolean}
  */
-export const checkItemInField = ([y, x]: Coords, { length }: Field): boolean =&gt;
-  y &gt;= 0 &amp;&amp; x &gt;= 0 &amp;&amp; length - y &gt; 0 &amp;&amp; length - x &gt; 0;
+export const checkItemInField = <span class="fstat-no" title="function not covered" >([</span>y, x]: Coords, { length }: Field): boolean =&gt;
+<span class="cstat-no" title="statement not covered" >  y &gt;= 0 &amp;&amp; x &gt;= 0 &amp;&amp; length - y &gt; 0 &amp;&amp; length - x &gt; 0;</span>
 &nbsp;
 /**
  * Increment neighbour items for cell with coords
@@ -199,19 +199,19 @@ export const checkItemInField = ([y, x]: Coords, { length }: Field): boolean =&g
  * @param {Field} field
  * @returns {Cell}
  */
-export const incrementNeighbours = (coords: Coords, field: Field): Field =&gt; {
-  const items = getNeigboursItems(coords);
+export const incrementNeighbours = <span class="fstat-no" title="function not covered" >(c</span>oords: Coords, field: Field): Field =&gt; {
+  const items = <span class="cstat-no" title="statement not covered" >getNeigboursItems(coords);</span>
 &nbsp;
-  for (const [y, x] of Object.values(items)) {
-    if (checkItemInField([y, x], field)) {
-      const cell = field[y][x];
-      if (cell &lt; 8) {
-        field[y][x] = (cell + 1) as Cell;
+<span class="cstat-no" title="statement not covered" >  for (const [y, x] of Object.values(items)) {</span>
+<span class="cstat-no" title="statement not covered" >    if (checkItemInField([y, x], field)) {</span>
+      const cell = <span class="cstat-no" title="statement not covered" >field[y][x];</span>
+<span class="cstat-no" title="statement not covered" >      if (cell &lt; 8) {</span>
+<span class="cstat-no" title="statement not covered" >        field[y][x] = (cell + 1) as Cell;</span>
       }
     }
   }
 &nbsp;
-  return field;
+<span class="cstat-no" title="statement not covered" >  return field;</span>
 };
 &nbsp;</pre></td></tr></table></pre>
 
@@ -220,7 +220,7 @@ export const incrementNeighbours = (coords: Coords, field: Field): Field =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-16T08:08:20.269Z
+                at 2022-08-19T09:58:33.901Z
             </div>
         <script src="../prettify.js"></script>
         <script>

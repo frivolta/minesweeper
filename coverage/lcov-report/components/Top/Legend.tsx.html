@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -111,7 +111,8 @@
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
 <a name='L48'></a><a href='#L48'>48</a>
-<a name='L49'></a><a href='#L49'>49</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -129,38 +130,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">19x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import styled from "@emotion/styled";
-import React, { FC } from "react";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { FC } from 'react';
+import styled from '@emotion/styled';
 &nbsp;
 export interface LegendProps {
   /**
@@ -172,9 +174,9 @@ export interface LegendProps {
    */
   firstAction: string;
   /**
-   * Second Action
+   * Second action
    */
-  secondAction: string;
+  secondAction?: string;
 }
 &nbsp;
 export const Legend: FC&lt;LegendProps&gt; = ({
@@ -185,17 +187,14 @@ export const Legend: FC&lt;LegendProps&gt; = ({
   &lt;Parent&gt;
     &lt;strong&gt;{feature}: &lt;/strong&gt;
     &lt;FlagComboParent&gt;
-      &lt;Key&gt;{firstAction} &lt;/Key&gt; + &lt;Click&gt;{secondAction}&lt;/Click&gt;
+      &lt;FirstAction&gt;{firstAction}&lt;/FirstAction&gt;
+      {secondAction &amp;&amp; &lt;SecondAction&gt; + {secondAction}&lt;/SecondAction&gt;}
     &lt;/FlagComboParent&gt;
   &lt;/Parent&gt;
 );
 &nbsp;
-const Key = styled.span`
-  color: #ec433c;
-`;
-&nbsp;
-const Click = styled.span`
-  color: #2a48ec;
+const FlagComboParent = styled.code`
+  background: #e3e3e3;
 `;
 &nbsp;
 const Parent = styled.legend`
@@ -204,8 +203,12 @@ const Parent = styled.legend`
   line-height: 1.25em;
 `;
 &nbsp;
-const FlagComboParent = styled.code`
-  background: #e3e3e3;
+const FirstAction = styled.span`
+  color: #ec433c;
+`;
+&nbsp;
+const SecondAction = styled.span`
+  color: #2a48ec;
 `;
 &nbsp;</pre></td></tr></table></pre>
 
@@ -214,7 +217,7 @@ const FlagComboParent = styled.code`
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-16T08:08:20.269Z
+                at 2022-08-19T15:58:58.673Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

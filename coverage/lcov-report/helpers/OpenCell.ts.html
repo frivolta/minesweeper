@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">10% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>20/20</span>
+                <span class='fraction'>2/20</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">91.66% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>11/12</span>
+                <span class='fraction'>0/12</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>1/1</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">10% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>20/20</span>
+                <span class='fraction'>2/20</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -105,80 +105,80 @@
 <a name='L40'></a><a href='#L40'>40</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">53x</span>
-<span class="cline-any cline-yes">53x</span>
-<span class="cline-any cline-yes">53x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">52x</span>
-<span class="cline-any cline-yes">48x</span>
-<span class="cline-any cline-yes">48x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">48x</span>
-<span class="cline-any cline-yes">384x</span>
-<span class="cline-any cline-yes">288x</span>
-<span class="cline-any cline-yes">288x</span>
-<span class="cline-any cline-yes">288x</span>
-<span class="cline-any cline-yes">288x</span>
-<span class="cline-any cline-yes">42x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">288x</span>
-<span class="cline-any cline-yes">288x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">52x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">52x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Coords, Field, CellState, Cell } from "./Field";
 import { checkItemInField, getNeigboursItems } from "./CellsManipulation";
 &nbsp;
 const { empty: e, hidden: h, bomb: b, flag: f } = CellState;
 &nbsp;
-export const openCell = (
+export const openCell = <span class="fstat-no" title="function not covered" >(</span>
   coords: Coords,
   playerField: Field,
   gameField: Field
 ): Field =&gt; {
-  const [y, x] = coords;
-  const gameCell = gameField[y][x];
-  if (gameCell === b) {
-    throw new Error("GameWithHooks Over");
+  const [y, x] = <span class="cstat-no" title="statement not covered" >coords;</span>
+  const gameCell = <span class="cstat-no" title="statement not covered" >gameField[y][x];</span>
+<span class="cstat-no" title="statement not covered" >  if (gameCell === b) {</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error("GameWithHooks Over");</span>
   }
 &nbsp;
-  if (gameCell === e) {
-    playerField[y][x] = gameCell;
-    const items = getNeigboursItems(coords);
+<span class="cstat-no" title="statement not covered" >  if (gameCell === e) {</span>
+<span class="cstat-no" title="statement not covered" >    playerField[y][x] = gameCell;</span>
+    const items = <span class="cstat-no" title="statement not covered" >getNeigboursItems(coords);</span>
 &nbsp;
-    for (const coords of Object.values(items)) {
-      if (checkItemInField(coords, gameField)) {
-        const [y, x] = coords;
-        const gameCell = gameField[y][x];
-        const playerCell = playerField[y][x];
-        if (gameCell === e &amp;&amp; playerCell === h) {
-          playerField = openCell(coords, playerField, gameField);
+<span class="cstat-no" title="statement not covered" >    for (const coords of Object.values(items)) {</span>
+<span class="cstat-no" title="statement not covered" >      if (checkItemInField(coords, gameField)) {</span>
+        const [y, x] = <span class="cstat-no" title="statement not covered" >coords;</span>
+        const gameCell = <span class="cstat-no" title="statement not covered" >gameField[y][x];</span>
+        const playerCell = <span class="cstat-no" title="statement not covered" >playerField[y][x];</span>
+<span class="cstat-no" title="statement not covered" >        if (gameCell === e &amp;&amp; playerCell === h) {</span>
+<span class="cstat-no" title="statement not covered" >          playerField = openCell(coords, playerField, gameField);</span>
         }
-        <span class="missing-if-branch" title="else path not taken" >E</span>if (gameCell &lt; b) {
-          playerField[y][x] = gameCell;
+<span class="cstat-no" title="statement not covered" >        if (gameCell &lt; b) {</span>
+<span class="cstat-no" title="statement not covered" >          playerField[y][x] = gameCell;</span>
         }
       }
     }
   }
 &nbsp;
-  playerField[y][x] = gameCell;
+<span class="cstat-no" title="statement not covered" >  playerField[y][x] = gameCell;</span>
 &nbsp;
-  return playerField;
+<span class="cstat-no" title="statement not covered" >  return playerField;</span>
 };
 &nbsp;</pre></td></tr></table></pre>
 
@@ -187,7 +187,7 @@ export const openCell = (
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-16T08:08:20.269Z
+                at 2022-08-19T09:58:33.901Z
             </div>
         <script src="../prettify.js"></script>
         <script>
