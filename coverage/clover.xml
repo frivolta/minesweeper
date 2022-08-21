@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1660924738801" clover="3.2.0">
-  <project timestamp="1660924738801" name="All files">
+<coverage generated="1661097061357" clover="3.2.0">
+  <project timestamp="1661097061357" name="All files">
     <metrics statements="486" coveredstatements="485" conditionals="156" coveredconditionals="156" methods="112" coveredmethods="111" elements="754" coveredelements="752" complexity="0" loc="486" ncloc="486" packages="15" files="49" classes="49"/>
     <package name="components.Game">
       <metrics statements="3" coveredstatements="3" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
@@ -141,9 +141,9 @@
         <line num="38" count="40" type="stmt"/>
         <line num="40" count="40" type="stmt"/>
         <line num="41" count="320" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="223" type="stmt"/>
-        <line num="43" count="223" type="cond" truecount="2" falsecount="0"/>
-        <line num="44" count="190" type="stmt"/>
+        <line num="42" count="243" type="stmt"/>
+        <line num="43" count="243" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="202" type="stmt"/>
         <line num="49" count="40" type="stmt"/>
       </file>
       <file name="Field.ts" path="/Users/frivolta/Desktop/Sites/Apps/minesweeper/core/Field.ts">
@@ -480,16 +480,16 @@
       <file name="CellsManipulator.ts" path="/Users/frivolta/Desktop/Sites/Apps/minesweeper/src/core/CellsManipulator.ts">
         <metrics statements="12" coveredstatements="12" conditionals="8" coveredconditionals="8" methods="3" coveredmethods="3"/>
         <line num="8" count="17" type="stmt"/>
-        <line num="11" count="469" type="stmt"/>
+        <line num="11" count="490" type="stmt"/>
         <line num="28" count="17" type="stmt"/>
-        <line num="29" count="3743" type="cond" truecount="4" falsecount="0"/>
+        <line num="29" count="3911" type="cond" truecount="4" falsecount="0"/>
         <line num="37" count="17" type="stmt"/>
         <line num="38" count="200" type="stmt"/>
         <line num="40" count="200" type="stmt"/>
         <line num="41" count="1600" type="cond" truecount="2" falsecount="0"/>
-        <line num="42" count="1299" type="stmt"/>
-        <line num="43" count="1299" type="cond" truecount="2" falsecount="0"/>
-        <line num="44" count="1204" type="stmt"/>
+        <line num="42" count="1330" type="stmt"/>
+        <line num="43" count="1330" type="cond" truecount="2" falsecount="0"/>
+        <line num="44" count="1233" type="stmt"/>
         <line num="49" count="200" type="stmt"/>
       </file>
       <file name="Field.ts" path="/Users/frivolta/Desktop/Sites/Apps/minesweeper/src/core/Field.ts">
@@ -515,46 +515,46 @@
       <file name="detectSolvedPullze.ts" path="/Users/frivolta/Desktop/Sites/Apps/minesweeper/src/core/detectSolvedPullze.ts">
         <metrics statements="21" coveredstatements="21" conditionals="11" coveredconditionals="11" methods="1" coveredmethods="1"/>
         <line num="9" count="9" type="stmt"/>
-        <line num="13" count="2057" type="stmt"/>
-        <line num="15" count="2057" type="stmt"/>
-        <line num="16" count="2057" type="stmt"/>
-        <line num="17" count="2057" type="stmt"/>
-        <line num="18" count="2057" type="stmt"/>
-        <line num="20" count="2057" type="stmt"/>
-        <line num="21" count="18375" type="stmt"/>
-        <line num="22" count="168199" type="stmt"/>
-        <line num="23" count="168199" type="stmt"/>
-        <line num="24" count="168199" type="stmt"/>
-        <line num="26" count="168199" type="cond" truecount="2" falsecount="0"/>
-        <line num="27" count="100068" type="stmt"/>
-        <line num="30" count="168199" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="2196" type="stmt"/>
+        <line num="15" count="2196" type="stmt"/>
+        <line num="16" count="2196" type="stmt"/>
+        <line num="17" count="2196" type="stmt"/>
+        <line num="18" count="2196" type="stmt"/>
+        <line num="20" count="2196" type="stmt"/>
+        <line num="21" count="19626" type="stmt"/>
+        <line num="22" count="179458" type="stmt"/>
+        <line num="23" count="179458" type="stmt"/>
+        <line num="24" count="179458" type="stmt"/>
+        <line num="26" count="179458" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="106773" type="stmt"/>
+        <line num="30" count="179458" type="cond" truecount="2" falsecount="0"/>
         <line num="31" count="5465" type="stmt"/>
-        <line num="34" count="168199" type="cond" truecount="2" falsecount="0"/>
-        <line num="35" count="21350" type="stmt"/>
-        <line num="37" count="21350" type="cond" truecount="2" falsecount="0"/>
-        <line num="38" count="5287" type="stmt"/>
-        <line num="45" count="2057" type="cond" truecount="3" falsecount="0"/>
-        <line num="49" count="2057" type="stmt"/>
+        <line num="34" count="179458" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="22740" type="stmt"/>
+        <line num="37" count="22740" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="5286" type="stmt"/>
+        <line num="45" count="2196" type="cond" truecount="3" falsecount="0"/>
+        <line num="49" count="2196" type="stmt"/>
       </file>
       <file name="openCell.ts" path="/Users/frivolta/Desktop/Sites/Apps/minesweeper/src/core/openCell.ts">
         <metrics statements="17" coveredstatements="17" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
         <line num="12" count="7" type="stmt"/>
-        <line num="17" count="1965" type="stmt"/>
-        <line num="19" count="1965" type="stmt"/>
-        <line num="20" count="1965" type="stmt"/>
-        <line num="21" count="1965" type="stmt"/>
-        <line num="23" count="1965" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="2104" type="stmt"/>
+        <line num="19" count="2104" type="stmt"/>
+        <line num="20" count="2104" type="stmt"/>
+        <line num="21" count="2104" type="stmt"/>
+        <line num="23" count="2104" type="cond" truecount="2" falsecount="0"/>
         <line num="24" count="3" type="stmt"/>
-        <line num="27" count="1962" type="cond" truecount="2" falsecount="0"/>
+        <line num="27" count="2101" type="cond" truecount="2" falsecount="0"/>
         <line num="28" count="1" type="stmt"/>
-        <line num="31" count="1961" type="stmt"/>
-        <line num="33" count="1961" type="cond" truecount="4" falsecount="0"/>
-        <line num="34" count="267" type="stmt"/>
-        <line num="36" count="267" type="stmt"/>
-        <line num="37" count="2136" type="cond" truecount="2" falsecount="0"/>
-        <line num="38" count="1651" type="stmt"/>
-        <line num="43" count="1961" type="stmt"/>
-        <line num="45" count="1961" type="stmt"/>
+        <line num="31" count="2100" type="stmt"/>
+        <line num="33" count="2100" type="cond" truecount="4" falsecount="0"/>
+        <line num="34" count="288" type="stmt"/>
+        <line num="36" count="288" type="stmt"/>
+        <line num="37" count="2304" type="cond" truecount="2" falsecount="0"/>
+        <line num="38" count="1790" type="stmt"/>
+        <line num="43" count="2100" type="stmt"/>
+        <line num="45" count="2100" type="stmt"/>
       </file>
       <file name="setFlag.ts" path="/Users/frivolta/Desktop/Sites/Apps/minesweeper/src/core/setFlag.ts">
         <metrics statements="14" coveredstatements="14" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
