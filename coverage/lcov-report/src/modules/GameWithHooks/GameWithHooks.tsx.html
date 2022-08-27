@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>2/2</span>
+                <span class='fraction'>4/4</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>9/9</span>
             </div>
         
             
@@ -121,11 +121,7 @@
 <a name='L56'></a><a href='#L56'>56</a>
 <a name='L57'></a><a href='#L57'>57</a>
 <a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a>
-<a name='L61'></a><a href='#L61'>61</a>
-<a name='L62'></a><a href='#L62'>62</a>
-<a name='L63'></a><a href='#L63'>63</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L59'></a><a href='#L59'>59</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -136,7 +132,10 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -149,28 +148,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">9x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,17 +180,21 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { FC, useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
 &nbsp;
 import { GameLevels, LevelNames } from '@/modules/GameSettings';
 &nbsp;
-import { Top } from '@/components/Top';
 import { Scoreboard } from '@/components/Scoreboard';
 import { Grid } from '@/components/Grid';
-import { GameArea, Wrapper, GameOver } from '@/components/Game';
+import { GameOver } from '@/components/Game';
 &nbsp;
 import { useGame } from './useGame';
 &nbsp;
 export const GameWithHooks: FC = () =&gt; {
+  const [searchParams, setSearchParams] = useSearchParams();
+&nbsp;
+  const urlLevelParam = (searchParams.get('level') || undefined) as LevelNames;
+&nbsp;
   const {
     level,
     time,
@@ -211,42 +207,34 @@ export const GameWithHooks: FC = () =&gt; {
     onContextMenu,
     onChangeLevel,
     onReset,
-  } = useGame();
+  } = useGame(urlLevelParam);
 &nbsp;
   const [, bombs] = settings;
 &nbsp;
   const onChangeLevelHandler = useCallback(
-    ({ target: { value: level } }: React.ChangeEvent&lt;HTMLSelectElement&gt;) =&gt;
-      onChangeLevel(level as LevelNames),
+    ({ target: { value: level } }: React.ChangeEvent&lt;HTMLSelectElement&gt;) =&gt; {
+      setSearchParams({ level });
+      onChangeLevel(level as LevelNames);
+    },
     // Stryker disable next-line ArrayDeclaration
     []
   );
 &nbsp;
   return (
-    &lt;Wrapper&gt;
-      &lt;Top feature="Flag" firstAction="right click"&gt;
-        Minesweeper
-      &lt;/Top&gt;
-      &lt;GameArea&gt;
-        &lt;Scoreboard
-          time={String(time)}
-          bombs={String(bombs - flagCounter)}
-          levels={GameLevels as unknown as string[]}
-          defaultLevel={level}
-          onChangeLevel={onChangeLevelHandler}
-          onReset={onReset}
-        /&gt;
-        {isGameOver &amp;&amp; &lt;GameOver onClick={onReset} isWin={isWin} /&gt;}
-        &lt;Grid
-          bombs={bombs}
-          flagCounter={flagCounter}
-          onClick={onClick}
-          onContextMenu={onContextMenu}
-        &gt;
-          {playerField}
-        &lt;/Grid&gt;
-      &lt;/GameArea&gt;
-    &lt;/Wrapper&gt;
+    &lt;&gt;
+      &lt;Scoreboard
+        time={String(time)}
+        bombs={String(bombs - flagCounter)}
+        levels={GameLevels as unknown as string[]}
+        defaultLevel={level}
+        onChangeLevel={onChangeLevelHandler}
+        onReset={onReset}
+      /&gt;
+      {isGameOver &amp;&amp; &lt;GameOver onClick={onReset} isWin={isWin} /&gt;}
+      &lt;Grid onClick={onClick} onContextMenu={onContextMenu}&gt;
+        {playerField}
+      &lt;/Grid&gt;
+    &lt;/&gt;
   );
 };
 &nbsp;</pre></td></tr></table></pre>
@@ -256,7 +244,7 @@ export const GameWithHooks: FC = () =&gt; {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2022-08-21T15:51:01.284Z
+                at Sat Aug 27 2022 18:58:40 GMT+0200 (Central European Summer Time)
             </div>
         <script src="../../../prettify.js"></script>
         <script>

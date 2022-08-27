@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-interface ReturnType {
+export interface Return {
   isGameOver: boolean;
   isGameStarted: boolean;
   isWin: boolean;
@@ -17,7 +17,7 @@ export enum GameStatuses {
   Loose,
 }
 
-export const useStatus = (): ReturnType => {
+export const useStatus = (): Return => {
   const { NewGame, InProgress, Win, Loose } = GameStatuses;
 
   const [isGameOver, setIsGameOver] = useState(false);
@@ -30,21 +30,13 @@ export const useStatus = (): ReturnType => {
     setIsGameOver([Win, Loose].includes(status));
   };
 
-  const setNewGame = () => {
-    setGameStatus(NewGame);
-  };
+  const setNewGame = () => setGameStatus(NewGame);
 
-  const setInProgress = () => {
-    setGameStatus(InProgress);
-  };
+  const setInProgress = () => setGameStatus(InProgress);
 
-  const setGameWin = () => {
-    setGameStatus(Win);
-  };
+  const setGameWin = () => setGameStatus(Win);
 
-  const setGameLoose = () => {
-    setGameStatus(Loose);
-  };
+  const setGameLoose = () => setGameStatus(Loose);
 
   return {
     isGameStarted,

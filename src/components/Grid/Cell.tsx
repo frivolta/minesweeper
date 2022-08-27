@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, memo } from 'react';
 import styled from '@emotion/styled';
 
 import { Cell as CellType, Coords, CellState } from '@/core/Field';
@@ -15,21 +15,13 @@ export interface CellProps {
    */
   coords: Coords;
   /**
-   * Flag counter
-   */
-  flagCounter: number;
-  /**
-   * Bombs counter
-   */
-  bombs: number;
-  /**
    * onClick by cell handler
    */
   onClick: (coords: Coords) => void;
   /**
    * onContextMenu by cell handler
    */
-  onContextMenu: (coords: Coords, flagCounter: number, bombs: number) => void;
+  onContextMenu: (coords: Coords) => void;
 }
 
 export const isActiveCell = (cell: CellType): boolean =>
@@ -51,38 +43,35 @@ export const areEqual = (
   );
 };
 
-export const Cell: FC<CellProps> = React.memo(
-  ({ children, coords, flagCounter, bombs, ...rest }) => {
-    const [mouseDown, onMouseDown, onMouseUp] = useMouseDown();
+export const Cell: FC<CellProps> = memo(({ children, coords, ...rest }) => {
+  const [mouseDown, onMouseDown, onMouseUp] = useMouseDown();
 
-    const onClick = () => rest.onClick(coords);
+  const onClick = () => rest.onClick(coords);
 
-    const onContextMenu = (event: React.MouseEvent<HTMLDivElement>) => {
-      /**
-       * Prevent context menu by default
-       */
-      event.preventDefault();
+  const onContextMenu = (event: React.MouseEvent<HTMLDivElement>) => {
+    /**
+     * Prevent context menu by default
+     */
+    event.preventDefault();
 
-      if (isActiveCell(children)) {
-        rest.onContextMenu(coords, flagCounter, bombs);
-      }
-    };
+    if (isActiveCell(children)) {
+      rest.onContextMenu(coords);
+    }
+  };
 
-    const props = {
-      onClick,
-      onContextMenu,
-      onMouseDown,
-      onMouseUp,
-      onMouseLeave: onMouseUp,
-      mouseDown,
-      'data-testid': `${coords}`,
-      role: 'cell',
-    };
+  const props = {
+    onClick,
+    onContextMenu,
+    onMouseDown,
+    onMouseUp,
+    onMouseLeave: onMouseUp,
+    mouseDown,
+    'data-testid': `${coords}`,
+    role: 'cell',
+  };
 
-    return <ComponentsMap {...props}>{children}</ComponentsMap>;
-  },
-  areEqual
-);
+  return <ComponentsMap {...props}>{children}</ComponentsMap>;
+}, areEqual);
 
 // Stryker disable next-line StringLiteral
 Cell.displayName = 'Cell';
@@ -142,8 +131,8 @@ export const ClosedFrame = styled.div<ClosedFrameProps>`
   justify-content: center;
   user-select: none;
   cursor: pointer;
-  width: 1.8vw;
-  height: 1.8vw;
+  width: 1.8vh;
+  height: 1.8vh;
   color: transparent;
   background-color: #d1d1d1;
   border: 0.6vh solid transparent;
@@ -182,8 +171,8 @@ const RevealedFrame = styled(ClosedFrame)`
 
 const Bomb = styled.div`
   border-radius: 50%;
-  width: 1vw;
-  height: 1vw;
+  width: 1vh;
+  height: 1vh;
   background-color: #333;
 `;
 
@@ -195,11 +184,11 @@ const Flag = styled.div`
   width: 0px;
   height: 0px;
   color: ${transparent};
-  border-top: 0.5vw solid transparent;
-  border-bottom: 0.5vw solid transparent;
-  border-left: 0.5vw solid #ec433c;
+  border-top: 0.5vh solid transparent;
+  border-bottom: 0.5vh solid transparent;
+  border-left: 0.5vh solid #ec433c;
 `;
 
 const WeakFlag = styled(Flag)`
-  border-left: 0.5vw solid #f19996;
+  border-left: 0.5vh solid #f19996;
 `;

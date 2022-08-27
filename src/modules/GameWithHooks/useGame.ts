@@ -12,9 +12,9 @@ import { setFlag } from '@/core/setFlag';
 
 import { LevelNames } from '@/modules/GameSettings';
 
-import { useTime } from './useTime';
-import { useSettings } from './useSettings';
 import { useStatus } from './useStatus';
+import { useSettings } from './useSettings';
+import { useTime } from './useTime';
 
 interface ReturnType {
   level: LevelNames;
@@ -27,27 +27,19 @@ interface ReturnType {
   gameField: Field;
   flagCounter: number;
   onClick: (coords: Coords) => void;
-  onContextMenu: (coords: Coords, flagCounter: number, bombs: number) => void;
+  onContextMenu: (coords: Coords) => void;
   onChangeLevel: (level: LevelNames) => void;
   onReset: () => void;
 }
 
-export const useGame = (): ReturnType => {
+export const useGame = (
+  defaultLevel = 'beginner' as LevelNames
+): ReturnType => {
   const {
     settings: [size, bombs],
     level,
     setLevel,
-  } = useSettings();
-
-  const [playerField, setPlayerField] = useState<Field>(
-    generateFieldWithDefaultState(size, CellState.hidden)
-  );
-
-  const [gameField, setGameField] = useState<Field>(
-    fieldGenerator(size, bombs / (size * size))
-  );
-
-  const [flagCounter, setFlagCounter] = useState(0);
+  } = useSettings(defaultLevel);
 
   const {
     isGameStarted,
@@ -58,7 +50,18 @@ export const useGame = (): ReturnType => {
     setGameWin,
     setGameLoose,
   } = useStatus();
+
   const [time, resetTime] = useTime(isGameStarted, isGameOver);
+
+  const [flagCounter, setFlagCounter] = useState(0);
+
+  const [playerField, setPlayerField] = useState<Field>(
+    generateFieldWithDefaultState(size, CellState.hidden)
+  );
+
+  const [gameField, setGameField] = useState<Field>(
+    fieldGenerator(size, bombs / (size * size))
+  );
 
   const onClick = useCallback(
     (coords: Coords) => {
@@ -78,11 +81,19 @@ export const useGame = (): ReturnType => {
         setGameLoose();
       }
     },
-    [isGameStarted, isGameOver, isWin, level]
+    [
+      isGameStarted,
+      isGameOver,
+      isWin,
+      level,
+      flagCounter,
+      playerField,
+      gameField,
+    ]
   );
 
   const onContextMenu = useCallback(
-    (coords: Coords, flagCounter: number, bombs: number) => {
+    (coords: Coords) => {
       !isGameStarted && setInProgress();
       const [newPlayerField, isSolved, newFlagCounter] = setFlag(
         coords,
@@ -97,36 +108,36 @@ export const useGame = (): ReturnType => {
       }
       setPlayerField([...newPlayerField]);
     },
-    // Stryker disable next-line ArrayDeclaration
-    [isGameStarted, isGameOver, isWin, level]
+    [
+      isGameStarted,
+      isGameOver,
+      isWin,
+      level,
+      flagCounter,
+      playerField,
+      gameField,
+    ]
   );
 
-  const resetHandler = useCallback(
-    ([size, bombs]: [number, number]) => {
-      const newGameField = fieldGenerator(size, bombs / (size * size));
-      const newPlayerField = generateFieldWithDefaultState(
-        size,
-        CellState.hidden
-      );
+  const resetHandler = ([size, bombs]: [number, number]) => {
+    const newGameField = fieldGenerator(size, bombs / (size * size));
+    const newPlayerField = generateFieldWithDefaultState(
+      size,
+      CellState.hidden
+    );
 
-      setGameField([...newGameField]);
-      setPlayerField([...newPlayerField]);
-      setFlagCounter(0);
-      setNewGame();
-      resetTime();
-    },
-    // Stryker disable next-line ArrayDeclaration
-    []
-  );
+    setGameField([...newGameField]);
+    setPlayerField([...newPlayerField]);
+    setNewGame();
+    resetTime();
+    setFlagCounter(0);
+  };
 
-  const onChangeLevel = useCallback(
-    (level: LevelNames) => {
-      const newSettings = setLevel(level);
-      resetHandler(newSettings);
-    },
+  const onChangeLevel = useCallback((level: LevelNames) => {
+    const newSettings = setLevel(level);
+    resetHandler(newSettings);
     // Stryker disable next-line ArrayDeclaration
-    []
-  );
+  }, []);
 
   const onReset = useCallback(
     () => resetHandler([size, bombs]),

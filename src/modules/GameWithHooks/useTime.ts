@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect } from 'react';
 
 export const useTime = (
   isGameStarted: boolean,
@@ -6,17 +6,13 @@ export const useTime = (
 ): [number, () => void] => {
   const [time, setTime] = useState(0);
 
-  const onReset = useCallback(
-    () => setTime(0),
-    // Stryker disable next-line ArrayDeclaration
-    []
-  );
+  const onReset = () => setTime(0);
 
   useEffect(() => {
     let interval: NodeJS.Timeout;
 
     if (isGameStarted) {
-      interval = setInterval(() => {
+      interval = setTimeout(() => {
         setTime(time + 1);
       }, 1000);
 

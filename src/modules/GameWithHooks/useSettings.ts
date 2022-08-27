@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { LevelNames, GameSettings, Settings } from '@/modules/GameSettings';
 
-interface ReturnType {
+interface Return {
   settings: Settings;
   level: LevelNames;
   setLevel: (level: LevelNames) => Settings;
@@ -10,12 +10,12 @@ interface ReturnType {
 
 export const useSettings = (
   defaultLevel = 'beginner' as LevelNames
-): ReturnType => {
+): Return => {
   const [level, setLevel] = useState<LevelNames>(defaultLevel);
-  const [size, bombs] = GameSettings[level];
+  const settings = GameSettings[level];
 
   return {
-    settings: [size, bombs],
+    settings,
     level,
     setLevel: (level) => {
       setLevel(level);

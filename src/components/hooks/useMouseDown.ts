@@ -1,4 +1,4 @@
-import { useState, useDebugValue, useCallback } from 'react';
+import { useState, useCallback } from 'react';
 
 export type SetMouseDownStatus = () => void;
 export type SetMouseUpStatus = () => void;

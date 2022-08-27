@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent } from 'react';
+import React, { FC, ChangeEvent, memo } from 'react';
 import styled from '@emotion/styled';
 
 export interface LevelProps {
@@ -16,17 +16,15 @@ export interface LevelProps {
   onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export const Level: FC<LevelProps> = React.memo(
-  ({ children, value, onChange }) => (
-    <Select onChange={onChange} value={value}>
-      {children.map((item: string) => (
-        <Option key={item} value={item}>
-          {item}
-        </Option>
-      ))}
-    </Select>
-  )
-);
+export const Level: FC<LevelProps> = memo(({ children, value, onChange }) => (
+  <Select onChange={onChange} value={value}>
+    {children.map((item: string) => (
+      <Option key={item} value={item}>
+        {item}
+      </Option>
+    ))}
+  </Select>
+));
 
 // Stryker disable next-line StringLiteral
 Level.displayName = 'Level';

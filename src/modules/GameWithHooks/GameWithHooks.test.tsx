@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSearchParams } from 'react-router-dom';
 import userEvent from '@testing-library/user-event';
 import { render, screen } from '@testing-library/react';
 
@@ -8,11 +9,23 @@ const mockOnClick = jest.fn();
 const mockOnChangeLevel = jest.fn();
 const mockOnReset = jest.fn();
 const mockOnContextMenu = jest.fn();
+const mockSetSearchParams = jest.fn();
+
+jest.mock('react-router-dom', () => ({
+  useSearchParams: jest.fn(),
+}));
+
+(useSearchParams as jest.Mock).mockReturnValue([
+  { get: () => null },
+  mockSetSearchParams,
+]);
 
 jest.mock('./useGame', () => ({
   __esModule: true,
-  useGame: () => ({
-    level: 'beginner',
+  useGame: (level = 'beginner') => ({
+    level,
+    time: 0,
+    flagCounter: 0,
     isGameOver: true,
     isWin: false,
     settings: [9, 10],
@@ -55,6 +68,15 @@ describe('GameWithHooks test cases', () => {
     render(<GameWithHooks />);
     userEvent.selectOptions(screen.getByRole('combobox'), 'intermediate');
     expect(mockOnChangeLevel).toHaveBeenCalled();
+    expect(mockSetSearchParams).toHaveBeenCalledWith({ level: 'intermediate' });
+  });
+  it('Level in search params works fine', () => {
+    (useSearchParams as jest.Mock).mockReturnValue([
+      { get: () => 'intermediate' },
+    ]);
+    render(<GameWithHooks />);
+    const intermediateOption = screen.queryByText('intermediate');
+    expect(intermediateOption).toBeInTheDocument();
   });
   it('Game over reset the game state', () => {
     render(<GameWithHooks />);

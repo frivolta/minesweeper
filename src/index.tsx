@@ -1,7 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 
-import { GameWithHooks } from './modules/GameWithHooks';
+import { App } from './App';
 
-// Stryker disable next-line StringLiteral,NoCoverage
-ReactDOM.render(<GameWithHooks />, document.getElementById('root'));
+const rootElement = document.getElementById('root');
+
+render(<App />, rootElement);
